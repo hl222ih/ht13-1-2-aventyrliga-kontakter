@@ -1,10 +1,10 @@
-﻿@model AdventurousContacts.Models.DataModels.Contact
+﻿@model AdventurousContacts.Models.Contact
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create New Contact</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -44,7 +44,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    Back to @Html.ActionLink("list of contacts", "Index").
 </div>
 
 @section Scripts {

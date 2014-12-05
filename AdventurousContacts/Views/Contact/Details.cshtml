@@ -1,4 +1,4 @@
-﻿@model AdventurousContacts.Models.DataModels.Contact
+﻿@model AdventurousContacts.Models.Contact
 
 @{
     ViewBag.Title = "Details";
@@ -31,6 +31,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ContactID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit contact", "Edit", new { id=Model.ContactID }) |
+    Back to @Html.ActionLink("list of contacts", "Index")
 </p>

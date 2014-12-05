@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AdventurousContacts.Models.DataModels;
+using AdventurousContacts.Models;
 
 namespace AdventurousContacts.Controllers
 {
@@ -15,6 +15,11 @@ namespace AdventurousContacts.Controllers
 
         //
         // GET: /Contact/
+
+        public ActionResult NotFound()
+        {
+            return View();
+        }
 
         public ActionResult Index()
         {
@@ -29,7 +34,7 @@ namespace AdventurousContacts.Controllers
             Contact contact = db.Contact.Find(id);
             if (contact == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound");
             }
             return View(contact);
         }
@@ -67,7 +72,7 @@ namespace AdventurousContacts.Controllers
             Contact contact = db.Contact.Find(id);
             if (contact == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound");
             }
             return View(contact);
         }

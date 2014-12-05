@@ -1,4 +1,4 @@
-﻿@model AdventurousContacts.Models.DataModels.Contact
+﻿@model AdventurousContacts.Models.Contact
 
 @{
     ViewBag.Title = "Delete";
@@ -35,6 +35,6 @@
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        Back to @Html.ActionLink("list of contacts", "Index")
     </p>
 }

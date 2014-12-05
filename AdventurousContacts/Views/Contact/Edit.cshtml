@@ -1,10 +1,10 @@
-﻿@model AdventurousContacts.Models.DataModels.Contact
+﻿@model AdventurousContacts.Models.Contact
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Contact</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -46,7 +46,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    Back to @Html.ActionLink("List of contacts", "Index").
 </div>
 
 @section Scripts {
