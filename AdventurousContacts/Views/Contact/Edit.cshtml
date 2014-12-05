@@ -6,11 +6,12 @@
 }
 
 <h2>Edit Contact</h2>
+@Html.Partial(@"~/Views/Shared/_Message.cshtml")
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
+    
     <fieldset>
         <legend>Contact</legend>
 

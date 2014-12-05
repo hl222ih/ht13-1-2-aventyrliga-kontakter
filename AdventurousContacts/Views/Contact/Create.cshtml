@@ -6,6 +6,7 @@
 }
 
 <h2>Create New Contact</h2>
+@Html.Partial(@"~/Views/Shared/_Message.cshtml")
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

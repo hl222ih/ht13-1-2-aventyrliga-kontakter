@@ -57,8 +57,16 @@ namespace AdventurousContacts.Controllers
             if (ModelState.IsValid)
             {
                 db.Contact.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                    TempData["Message"] = "Kontakten har skapats.";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["Message"] = "Kontakten kunde inte skapas.";                    
+                }
             }
 
             return View(contact);
@@ -87,8 +95,16 @@ namespace AdventurousContacts.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(contact).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                    TempData["Message"] = "Kontakten har uppdaterats.";
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    TempData["Message"] = "Kontakten kunde inte uppdateras.";
+                }
             }
             return View(contact);
         }
@@ -101,7 +117,7 @@ namespace AdventurousContacts.Controllers
             Contact contact = db.Contact.Find(id);
             if (contact == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound");
             }
             return View(contact);
         }
@@ -115,8 +131,17 @@ namespace AdventurousContacts.Controllers
         {
             Contact contact = db.Contact.Find(id);
             db.Contact.Remove(contact);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                db.SaveChanges();
+                TempData["Message"] = "Kontakten har raderats.";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                TempData["Message"] = "Kontakten kunde inte raderas.";                
+            }
+            return View(contact);
         }
 
         protected override void Dispose(bool disposing)
